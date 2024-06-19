@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manish's Finances</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='equity.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar">
+        <a href="{{ url_for('index') }}">
+            <h1>
+                manish's finances
+            </h1>
+        </a>
+
+        <div id="nav-buttons-div">
+            <a href="{{ url_for('assets') }}">
+                <button id="assets" class="nav-button">
+                    assets
+                </button>
+            </a>
+            <a href="{{ url_for('equity') }}">
+                <button id="equity" class="nav-button">
+                    equity
+                </button>
+            </a>
+            <a href="{{ url_for('crypto') }}">
+                <button id="crypto" class="nav-button">
+                    crypto
+                </button>
+            </a>
+            <a href="{{ url_for('taxes') }}">
+                <button id="taxes" class="nav-button">
+                    taxes
+                </button>
+            </a>
+            <a href="{{ url_for('budget') }}">
+                <button id="budget" class="nav-button">
+                    budget
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <iframe width="600" 
+            height="450" 
+            src="https://lookerstudio.google.com/embed/reporting/46623bf9-d70c-4537-852b-a3dd4e18e4a8/page/CuH1D" 
+            frameborder="0" 
+            style="border:0" 
+            allowfullscreen 
+            sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+    </iframe>
+
+    <script src="{{ url_for('static', filename='equity.js') }}"></script>
+</body>
+</html>
