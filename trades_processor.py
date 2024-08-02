@@ -36,7 +36,7 @@ if __name__ == "__main__":
             trade_type = 'buy'
             and balance > 0
         """
-        
+
     print("Extracting existing trades from BigQuery")
     existing_trades = bq_conn.extract(QUERY)
     print(f"Found {existing_trades.shape[0]} unbalanced trades")
@@ -51,15 +51,15 @@ if __name__ == "__main__":
         trade_id, symbol, balance, quantity, price = data["trade_id"], data["symbol"], data["balance"], data["quantity"], data["price"]
 
         if data["trade_type"] == "buy":
-            trades_queue[symbol].append([trade_id, balance if balance else quantity, price])
-            
+            trades_queue[symbol].append([trade_id, balance or quantity, price])
+
         else:
             pnl = 0
             while quantity > 0:
                 if quantity >= trades_queue[symbol][0][1]:
                     pnl += trades_queue[symbol][0][1] * (price - trades_queue[symbol][0][2])
                     quantity -= trades_queue[symbol][0][1]
-                    
+
                     buy_to_update = trades_queue[symbol].pop(0)
                     trades_df.at[buy_to_update[0], "balance"] = 0
 
@@ -70,8 +70,8 @@ if __name__ == "__main__":
 
             trades_df.at[trade_id, "pnl"] = pnl
 
-    for symbol in trades_queue:
-        for trade in trades_queue[symbol]:
+    for value in trades_queue.values():
+        for trade in value:
             trades_df.at[trade[0], "balance"] = trade[1]
 
 
