@@ -1,0 +1,1 @@
+This folder contains project files for creating a web app for the Plutus project. It is meant to be used in the case that I ever decide to work on the project when I have a bunch of free time.
