@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+h1 {
+    color: #FA900F;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 4vh;
+    padding-right: 6vh;
+    margin: 3vh;
+}

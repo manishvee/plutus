@@ -1,3 +1,0 @@
-BQ_PROJECT_NAME = 'plutus-424506'
-BQ_DATASET_NAME = 'equity'
-
