@@ -31,9 +31,6 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 # Copy wheels from builder stage
 COPY --from=builder /app/wheels /app/wheels
 
-# Copy environment file
-COPY .env ./
-
 # Install the application using wheels and clean up
 RUN pip install --no-cache-dir --no-index --find-links=/app/wheels plutus \
     && rm -rf /app/wheels \
