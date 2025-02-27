@@ -21,6 +21,10 @@ def create_app(test_config=None):
     def index():
         return render_template("index.html")
 
+    @app.route("/upload")
+    def upload():
+        return render_template("upload.html")
+
     from . import db
 
     db.init_app(app)
