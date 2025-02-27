@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{% endblock %} - MV's Finances</title>
 
-  
+
   <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
   {% block styles %}{% endblock %}
 
@@ -14,20 +14,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
     rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 </head>
 
 <body>
-  <nav>
-    <a href="{{ url_for('index') }}">
-      <h1>
-        manish's finances
-      </h1>
-    </a>
+  <nav class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+    <div class="flex items-center gap-4 text-[#111418]">
+      <a href="{{ url_for('index') }}">
+        <h1 class="text-[#FA900F] text-lg font-bold leading-tight tracking-[-0.015em]">manish's finances</h2>
+      </a>
+    </div>
 
-    <div id="nav-buttons-div">
+    <div class="flex flex-1 justify-end gap-8">
+      <div class="flex items-center gap-9">
+        <a class="text-[#FA900F] text-sm font-medium leading-normal" href="{{ url_for('index') }}">overview</a>
+        <a class="text-[#FA900F] text-sm font-medium leading-normal" href="{{ url_for('upload') }}">upload</a>
+        <a class="text-[#FA900F] text-sm font-medium leading-normal" href="#">taxes</a>
+        <a class="text-[#FA900F] text-sm font-medium leading-normal" href="#">equity</a>
+        <a class="text-[#FA900F] text-sm font-medium leading-normal" href="#">crypto</a>
+      </div>
     </div>
   </nav>
-  {% block content %}{% endblock %}
+
+  <div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
+    style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+  
 
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 
