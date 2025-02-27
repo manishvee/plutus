@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plutus"
+version = "1.0.0"
+description = "A Flask application for processing trades"
+requires-python = ">=3.8"
+dependencies = [
+    "flask",
+    "gunicorn",
+    "python-dotenv",
+    "pandas",
+    "google-cloud-bigquery"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "mypy",
+]
+
+[tool.setuptools]
+packages = ["plutus"]
