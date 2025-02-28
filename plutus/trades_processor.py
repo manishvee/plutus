@@ -2,7 +2,6 @@ import glob
 from collections import defaultdict
 
 import pandas as pd
-from connectors import BigQueryConnector, CSVConnector
 from config import BQ_DATASET_NAME, BQ_PROJECT_NAME
 
 
