@@ -1,25 +1,20 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
-
-[project]
+[tool.poetry]
 name = "plutus"
 version = "1.0.0"
 description = "A Flask application for processing trades"
-requires-python = ">=3.8"
-dependencies = [
-    "flask",
-    "gunicorn",
-    "python-dotenv",
-    "pandas",
-    "google-cloud-bigquery"
-]
+authors = ["Your Name <your.email@example.com>"]
+packages = [{include = "plutus"}]
 
-[project.optional-dependencies]
-dev = [
-    "pytest",
-    "mypy",
-]
+[tool.poetry.dependencies]
+python = "^3.13"
+flask = "^3.1.0"
+pandas = "^2.2.3"
+google-cloud-bigquery = "^3.30.0"
+gunicorn = "^23.0.0"
 
-[tool.setuptools]
-packages = ["plutus"]
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
